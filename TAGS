@@ -36,40 +36,41 @@ main main5,6
 ./Setup.hs,15
 main main1,2
 
-./src/Lib.hs,964
+./src/Lib.hs,993
 module LibLib3,4
-nopes nopes20,21
-data SlashRequest SlashRequest24,25
-data SlashRequest = SlashRequestSlashRequest24,25
-  { token token25,26
-  , teamId teamId26,27
-  , teamDomain teamDomain27,28
-  , channelId channelId28,29
-  , channelName channelName29,30
-  , userId userId30,31
-  , userName userName31,32
-  , command command32,33
-  , text text33,34
-  , responseUrl responseUrl34,35
-instance instance37,38
-data SlashResponse SlashResponse53,54
-data SlashResponse = SlashResponseSlashResponse53,54
-    { responseType responseType54,55
-    , responseText responseText55,56
-data ResponseType ResponseType69,70
-data ResponseType = Ephemeral Ephemeral69,70
-data ResponseType = Ephemeral | InChannel InChannel69,70
-type API API75,76
-startApp startApp77,78
-startApp startApp78,79
-app app80,81
-app app81,82
-api api83,84
-api api84,85
-server server86,87
-server server87,88
-note note100,101
-note note101,102
+nopes nopes21,22
+data SlashRequest SlashRequest25,26
+data SlashRequest = SlashRequestSlashRequest25,26
+  { token token26,27
+  , teamId teamId27,28
+  , teamDomain teamDomain28,29
+  , channelId channelId29,30
+  , channelName channelName30,31
+  , userId userId31,32
+  , userName userName32,33
+  , command command33,34
+  , text text34,35
+  , responseUrl responseUrl35,36
+instance instance38,39
+data SlashResponse SlashResponse55,56
+data SlashResponse = SlashResponseSlashResponse55,56
+    { responseType responseType56,57
+    , responseText responseText57,58
+data ResponseType ResponseType71,72
+data ResponseType = Ephemeral Ephemeral71,72
+data ResponseType = Ephemeral | InChannel InChannel71,72
+type API API77,78
+startApp startApp79,80
+startApp startApp80,81
+app app85,86
+app app86,87
+api api88,89
+api api89,90
+server server91,92
+server server92,93
+logRequest logRequest98,99
+note note108,109
+note note109,110
 
 ./test/Spec.hs,30
 main main0,1

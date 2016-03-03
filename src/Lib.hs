@@ -16,6 +16,7 @@ import           Data.Text                (Text)
 import           Network.Wai
 import           Network.Wai.Handler.Warp
 import           Servant
+import           System.Environment       (getEnv)
 import           System.Random.Shuffle    (shuffleM)
 
 nopes =
@@ -37,16 +38,17 @@ data SlashRequest = SlashRequest
 
 instance FromFormUrlEncoded SlashRequest where
     fromFormUrlEncoded form =
-        SlashRequest <$> field "token"
-             <*> field "team_id"
-             <*> field "team_domain"
-             <*> field "channel_id"
-             <*> field "channel_name"
-             <*> field "user_id"
-             <*> field "user_name"
-             <*> field "command"
-             <*> field "text"
-             <*> field "response_url"
+        SlashRequest
+          <$> field "token"
+          <*> field "team_id"
+          <*> field "team_domain"
+          <*> field "channel_id"
+          <*> field "channel_name"
+          <*> field "user_id"
+          <*> field "user_name"
+          <*> field "command"
+          <*> field "text"
+          <*> field "response_url"
       where
           field :: Text -> Either String Text
           field name = note (show name) (lookup name form)
@@ -76,7 +78,10 @@ instance ToJSON ResponseType where
 type API = "nope" :> ReqBody '[FormUrlEncoded] SlashRequest :> Post '[JSON] SlashResponse
 
 startApp :: IO ()
-startApp = putStrLn "Started app on port 4000\n" >> run 4000 app
+startApp = do
+    port <- read <$> getEnv "PORT"
+    putStrLn $ "Started app on port " ++ show port
+    run port app
 
 app :: Application
 app = serve api server
@@ -88,13 +93,16 @@ server :: Server API
 server nope = do
     gif <- head <$> liftIO (shuffleM nopes)
     let res = SlashResponse InChannel gif
+    logRequest nope res
+    return res
+
+logRequest nope res =
     liftIO $ do
        putStrLn "Request:"
        print nope
        putStrLn "Response:"
        BS.putStr (encodePretty res)
        putStrLn "\n"
-    return res
 
 -- Utils
 
