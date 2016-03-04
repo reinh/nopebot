@@ -25,9 +25,9 @@ nopes =
     , "http://i.imgur.com/n3RGs0O.gif"
     , "http://i.imgur.com/hXGtYfh.gif"
     , "http://i.imgur.com/Sj6HN.gif"
-    , "http://i.imgur.com/fFUjGje.gif"
     , "http://i.imgur.com/GPqtwr7.gif"
-    , "http://i.imgur.com/NpAbl.gif" ]
+    , "http://i.imgur.com/NpAbl.gif"
+    , "http://i.imgur.com/YcAQlkx.gif" ]
 
 data SlashRequest = SlashRequest
   { token       :: Text
