@@ -21,7 +21,13 @@ import           System.Random.Shuffle    (shuffleM)
 
 nopes =
     [ "https://media.giphy.com/media/gX0wdXBYL8Ius/giphy.gif"
-    , "http://i.imgur.com/I8kq0uJ.gif"]
+    , "http://i.imgur.com/I8kq0uJ.gif"
+    , "http://i.imgur.com/n3RGs0O.gif"
+    , "http://i.imgur.com/hXGtYfh.gif"
+    , "http://i.imgur.com/Sj6HN.gif"
+    , "http://i.imgur.com/fFUjGje.gifv"
+    , "http://i.imgur.com/GPqtwr7.gif"
+    , "http://i.imgur.com/NpAbl.gif" ]
 
 data SlashRequest = SlashRequest
   { token       :: Text
